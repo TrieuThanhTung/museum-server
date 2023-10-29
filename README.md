@@ -5,35 +5,35 @@
 # api
    * [post] sign up: http://localhost:5000/signup <br />*
    form data request: <br />
-   `{
-     email: String 
-     password: String 
-     name: String 
-     age: Number 
-     gender: String 
+   `{ <br />
+     email: String <br />
+     password: String <br />
+     name: String <br />
+     age: Number <br />
+     gender: String <br />
    }`
    - response: 
       - chưa có email: 
-               ```{
-                   _id: 
-                   email: 
+               ```{ <br />
+                   _id: <br />
+                   email: <br />
                }```
       - email đã tồn tại: 
                `{"0"}` 
    *[post] login: http://localhost:5000/login*
    - form data request:
-            ```{
-                 email: String 
-                 password: String 
+            ```{ <br />
+                 email: String <br />
+                 password: String <br />
                }```
    - response: 
-   - Account đã tồn tại: 
-            `{
-              _id: 
-              email: 
-            }`
-   - Ngược lại: 
-            `{"0"} `
+         - Account đã tồn tại: 
+                  `{<br />
+                    _id: <br />
+                    email: <br />
+                  }`
+         - Ngược lại: 
+                  `{"0"} `
    
    
 
