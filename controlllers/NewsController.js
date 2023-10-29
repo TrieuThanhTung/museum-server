@@ -12,8 +12,9 @@ class NewsController {
     }
 
     async post(req, res) {
-        await News.create(req.body); 
-        console.log("create a News");
+        const response = await News.create(req.body); 
+        console.log("create a News: ", response);
+        res.json(response);
     }
 }
 
