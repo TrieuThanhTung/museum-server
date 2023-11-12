@@ -10,13 +10,15 @@ class GalleryController {
             console.log(error)
         })
     }
-
+    
+    //[put]
     create = async(req, res) => {
         const resData = await Gallery.create(req.body)
         console.log(resData)
         res.json(resData);
     }
 
+    //[get]
     findGallery = async (req, res) => {
         const titleParam = req.params.titleParam;
         Gallery.findOne({titleParam})
@@ -29,6 +31,23 @@ class GalleryController {
         })
     }
 
+    //[patch]
+    updateGallery = async (req, res) => {
+        const filter = {"url": req.body.url}
+        const update = {"images": req.body.images }
+
+        try {
+            const doc = await Gallery.findOneAndUpdate(filter, update, {
+                new: true
+            })
+            console.log(doc)
+            res.json(doc)
+        } catch(error) {
+            console.log(error)
+        }
+    }
+
+    //[delete]
     deleteAll = async (req, res) => {
         const titleParam = req.params.titleParam
         const resData = await Gallery.deleteMany({ titleParam })
