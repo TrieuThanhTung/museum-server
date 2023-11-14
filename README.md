@@ -43,6 +43,9 @@
    - URL: http://localhost:5000/gallery - MAIN
    - URL: http://localhost:5000/gallery/:titleParam
      - example: http://localhost:5000/gallery/trung-bay-thuong-xuyen-p1
+4. Search
+   - URL: http://localhost:5000/gallery/search/:search
+       - example: http://localhost:5000/gallery/search/việt
    
   
   
