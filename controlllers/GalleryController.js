@@ -1,4 +1,5 @@
 const Gallery = require('../models/Gallery')
+const Search = require('../models/Search')
 
 class GalleryController {
     index = async (req, res) => {
@@ -23,6 +24,19 @@ class GalleryController {
         const titleParam = req.params.titleParam;
         Gallery.findOne({titleParam})
         .exec()
+        .then((data) => {
+            res.json(data)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    }
+    // [get]
+    search = async (req, res) => {
+        const query = req.params.title;
+        // const query = req.query.title;
+        console.log(query)
+        Search.find({title: {$regex: query, $options: 'i'}})
         .then((data) => {
             res.json(data)
         })

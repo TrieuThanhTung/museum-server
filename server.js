@@ -6,8 +6,8 @@ require('dotenv').config()
 
 const port = process.env.PORT || 3000
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.json({limit: '50mb', extended: true}));
+app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 app.use(cors())
 const route = require('./routes')
 const db = require('./database/Mongo')

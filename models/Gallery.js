@@ -9,7 +9,8 @@ const Gallery = new Schema({
     titleParam: { type: String, default: '' },
     paragraph: { type: Array, default: [] },
     images: { type: Array, default: [] },
-    navigator: { type: Array, default: [] }
+    navigator: { type: Array, default: []},
+    speech: {type: String, default: []}
 })
 
 module.exports = mongoose.model('Galeries', Gallery)
