@@ -31,19 +31,6 @@ class GalleryController {
             console.log(error)
         })
     }
-    // [get]
-    search = async (req, res) => {
-        const query = req.params.title;
-        // const query = req.query.title;
-        console.log(query)
-        Search.find({title: {$regex: query, $options: 'i'}})
-        .then((data) => {
-            res.json(data)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-    }
 
     //[patch]
     updateGallery = async (req, res) => {
@@ -67,6 +54,20 @@ class GalleryController {
         const resData = await Gallery.deleteMany({ titleParam })
         console.log(resData)
         return resData;
+    }
+
+    //
+     // [post]
+     search = async (req, res) => {
+        const query = req.body.query;
+        console.log(query)
+        Search.find({title: {$regex: query, $options: 'i'}})
+        .then((data) => {
+            res.json(data)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
     }
 }
 
