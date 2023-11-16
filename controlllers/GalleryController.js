@@ -56,7 +56,7 @@ class GalleryController {
         return resData;
     }
 
-    //
+    // search
      // [post]
      search = async (req, res) => {
         const query = req.body.query;
