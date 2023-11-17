@@ -41,7 +41,10 @@ class SiteController {
         const data = req.body;
        
         try {
-            const response = await User.findByIdAndUpdate(id, data, {new: true});
+            const response = await User.findOneAndUpdate({_id: id}, data, {
+                fields: {email: 1, name: 1, like: 1},
+                new: true}
+                );
             if(response) {
                 res.json(response)
                 console.log("update exhibit like")
@@ -53,8 +56,22 @@ class SiteController {
         } catch (error) {
             console.log(error)
         }
+    }
 
-       
+    async getLiked(req, res) {
+        const id = req.params.id     
+        try {
+            const response = await User.findById(id, {email: 1, name: 1, like: 1});
+            if(response) {
+                res.json(response)
+            } else {
+                res.json({
+                    "message": "get fail."
+                })
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 
