@@ -56,8 +56,13 @@ class SiteController {
         const data = req.body;
 
         try {
-            if(data.password !== null) {
+            if('password' in data) {
                 res.json({message: "Cannot change password by update profile"})
+                return;
+            }
+
+            if('email' in data) {
+                res.json({message: "Cannot change email"})
                 return;
             }
 
