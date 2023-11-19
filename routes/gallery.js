@@ -1,6 +1,7 @@
 const express = require('express')
 const route = express.Router()
 const GalleryController = require('../controlllers/GalleryController')
+const PopularController = require('../controlllers/PopularController')
 
 route.get('/', GalleryController.index)
 route.get('/:titleParam', GalleryController.findGallery)

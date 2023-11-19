@@ -1,5 +1,6 @@
 const Gallery = require('../models/Gallery')
 const Search = require('../models/Search')
+const Popular = require('../models/Popular')
 
 class GalleryController {
     index = async (req, res) => {
@@ -68,7 +69,13 @@ class GalleryController {
         .catch((error) => {
             console.log(error)
         })
-    }
+     }
+
+    // popular
+    //[get]
+    // getPopular = async(req, res) => {
+    //     res.json("popular");
+    // }
 }
 
 module.exports = new GalleryController();
