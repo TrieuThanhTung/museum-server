@@ -8,5 +8,7 @@ route.post('/signup', SiteController.signup);
 route.post('/login', SiteController.login);
 
 route.get('/popular', PopularController.getPopular);
+// route.post('/popular', PopularController.createData)
+route.patch('/popular', PopularController.addViewed)
 
 module.exports = route
