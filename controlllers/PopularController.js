@@ -3,7 +3,7 @@ const Popular = require('../models/Popular')
 class PopularController {
     getPopular = async (req, res) => {
         try {
-            const data = await Popular.find({}).sort({viewed: -1}).limit(10);
+            const data = await Popular.find({}).sort({viewed: -1}).limit(5);
         
             res.json({data})
         } catch (error) {
@@ -41,7 +41,17 @@ class PopularController {
         }
     }
 
-
+    //featured
+    getFeatured = async(req, res) => {
+        try {
+            const response = await Popular.find({}).sort({date: -1}).limit(5)
+            if(response) {
+                res.json(response)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 module.exports = new PopularController();
