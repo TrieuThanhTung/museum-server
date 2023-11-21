@@ -36,7 +36,7 @@ class GalleryController {
     //[patch]
     updateGallery = async (req, res) => {
         const filter = {"url": req.body.url}
-        const update = {"images": req.body.images }
+        const update = {"thumbnail": req.body.thumbnail }
 
         try {
             const doc = await Gallery.findOneAndUpdate(filter, update, {

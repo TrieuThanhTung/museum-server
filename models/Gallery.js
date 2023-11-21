@@ -6,11 +6,12 @@ const Gallery = new Schema({
     url: {type: String, default: ''},
     parentURL: {type: String, default: ''},
     title: { type: Array, default: '' },
+    thumbnail: {type: String, default: ''},
     titleParam: { type: String, default: '' },
     paragraph: { type: Array, default: [] },
     images: { type: Array, default: [] },
     navigator: { type: Array, default: []},
-    speech: {type: String, default: []}
+    speech: {type: String, default: ''}
 })
 
 module.exports = mongoose.model('Galeries', Gallery)
