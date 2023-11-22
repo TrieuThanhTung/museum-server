@@ -1,6 +1,5 @@
 const Gallery = require('../models/Gallery')
 const Search = require('../models/Search')
-const Popular = require('../models/Popular')
 
 class GalleryController {
     index = async (req, res) => {
@@ -71,11 +70,22 @@ class GalleryController {
         })
      }
 
-    // popular
-    //[get]
-    // getPopular = async(req, res) => {
-    //     res.json("popular");
-    // }
+    editSearch = async (req, res) => {
+        const titleParam = {titleParam: req.body.titleParam};
+        const thumbnail = {thumbnail: req.body.thumbnail};
+
+        try {
+            const response = await Search.findOneAndUpdate(titleParam, thumbnail, {
+                new: true
+            });
+            if(response) {
+                res.json(response)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+     }
+
 }
 
 module.exports = new GalleryController();
