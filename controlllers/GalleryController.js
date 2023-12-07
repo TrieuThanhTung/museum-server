@@ -73,7 +73,6 @@ class GalleryController {
     editSearch = async (req, res) => {
         const titleParam = {titleParam: req.body.titleParam};
         const thumbnail = {thumbnail: req.body.thumbnail};
-
         try {
             const response = await Search.findOneAndUpdate(titleParam, thumbnail, {
                 new: true

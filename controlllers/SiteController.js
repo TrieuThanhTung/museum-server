@@ -23,9 +23,12 @@ class SiteController {
     }
 
     async login(req, res) {
-        const authData = req.body
+        const formLogin = {
+            email: req.body.email,
+            password: req.body.password
+        }
         try {
-            const user = await User.findOne(authData, {_id: 1, email: 1})
+            const user = await User.findOne(formLogin, {_id: 1, email: 1, name: 1})
             if(user) {
                 res.json(user)
             } else {
